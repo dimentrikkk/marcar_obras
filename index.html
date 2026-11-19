@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070706">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marcarwood | Mobiliário por medida em Guimarães">
+<meta property="og:description" content="Cozinhas, casas de banho, quartos e espaços comerciais feitos por medida em Guimarães. Uma empresa de família, da Marcarobras.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<style>html{background:#070706;color-scheme:dark;-webkit-text-size-adjust:100%;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>Marcarwood | Mobiliário por medida</title>
+<meta name="description" content="Marcarwood, mobiliário por medida em Guimarães.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Layout: split hero (text + tall photo), ruled service list, family story with name lockup, staggered gallery, contact panel. Black and gold taken from the logo. */
+  :root {
+    --bg: #070706;
+    --surface: #100e0a;
+    --line: #2b2518;
+    --fg: #efe8d8;
+    --muted: #a99f89;
+    --gold: #d0a84e;
+    --gold-deep: #8d7231;
+    --on-gold: #14100a;
+    --gold-grad: linear-gradient(120deg, #f4de97 0%, #d0a84e 45%, #957329 100%);
+    --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --body: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+    z-index: 10; background: var(--bg);
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .wrap { max-width: 1160px; margin: 0 auto; }
+
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: 0.005em; }
+  h1 { font-size: clamp(2.7rem, 6.4vw, 5rem); }
+  h2 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); }
+  h3 { font-size: 1.7rem; }
+  p { margin: 0; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::before { content: ""; width: 11px; height: 12px; background: var(--gold); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); flex: none; }
+  .lead { color: var(--muted); font-size: 1.12rem; max-width: 34em; }
+
+  /* header */
+  .bar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: var(--bg); border-bottom: 1px solid var(--line);
+    margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 8px; }
+  .bar img.logo { height: 64px; width: auto; mix-blend-mode: lighten; }
+  .bar nav { display: flex; gap: 30px; }
+  .bar nav a { text-decoration: none; font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+  .bar nav a:hover { color: var(--gold); }
+
+  .bar-end { display: flex; align-items: center; gap: 12px; }
+  .burger { display: none; width: 46px; height: 46px; border: 1px solid var(--gold-deep); background: none; cursor: pointer; padding: 0; position: relative; flex: none; }
+  .burger span { position: absolute; left: 12px; right: 12px; height: 1.5px; background: var(--gold); transition: transform .3s, opacity .2s, top .3s; }
+  .burger span:nth-child(1) { top: 16px; } .burger span:nth-child(2) { top: 22px; } .burger span:nth-child(3) { top: 28px; }
+  .burger[aria-expanded="true"] span:nth-child(1) { top: 22px; transform: rotate(45deg); }
+  .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .burger[aria-expanded="true"] span:nth-child(3) { top: 22px; transform: rotate(-45deg); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 14px 26px; font: 500 0.88rem/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; border: 1px solid var(--gold); color: var(--gold); background: transparent;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+  .btn:hover { background: var(--gold); color: var(--on-gold); }
+  .btn.solid { background: var(--gold); color: var(--on-gold); }
+  .btn.solid:hover { background: var(--fg); border-color: var(--fg); }
+  .btn.small { padding: 11px 18px; font-size: 0.78rem; }
+
+  /* hero */
+  .hero {
+    position: relative; overflow: hidden;
+    margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    background: radial-gradient(ellipse 70% 65% at 88% 8%, rgba(208,168,78,.14), transparent 65%), var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .wrap.main { display: grid; grid-template-columns: minmax(0, 640px); align-content: center; min-height: clamp(580px, 88vh, 840px); padding-top: clamp(44px, 6vw, 84px); padding-bottom: clamp(48px, 6vw, 80px); }
+  .hero h1 { font-weight: 500; font-size: clamp(3rem, 6.6vw, 5.8rem); line-height: 1.02; margin-bottom: 28px; }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero .lead { margin-bottom: 40px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-bg { position: absolute; top: 0; right: 0; width: 66%; height: 100%; object-fit: cover; object-position: 50% 100%; filter: brightness(.82) contrast(1.05);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%); mask-image: linear-gradient(to right, transparent 0%, #000 42%); }
+  .hero .main > div { position: relative; }
+  .hero .main > div::before { content: ""; position: absolute; inset: -40px -80px -40px -200px; z-index: -1; background: radial-gradient(ellipse at 35% 50%, rgba(7,7,6,.88) 0%, rgba(7,7,6,.6) 55%, transparent 80%); pointer-events: none; }
+  .hero h1, .hero .lead { text-shadow: 0 2px 24px rgba(0,0,0,.6); }
+  .hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 40%; background: linear-gradient(to top, var(--bg), transparent); pointer-events: none; }
+  .hero .main { position: relative; z-index: 2; }
+  .hero::before { content: ""; position: absolute; inset: 18px; border: 1px solid rgba(208,168,78,.28); z-index: 3; pointer-events: none; }
+  .hero h1 { letter-spacing: -0.005em; }
+  .hero .lead { font-size: 1.15rem; }
+  .cue { position: absolute; z-index: 4; bottom: 46px; left: max(16px, calc((100% - 1160px) / 2)); display: flex; align-items: center; gap: 16px; text-decoration: none; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+  .cue:hover { color: var(--gold); }
+  .cue i { display: block; width: 1px; height: 54px; background: linear-gradient(to bottom, var(--gold), transparent); transform-origin: top; animation: cue 2.4s ease-in-out infinite; }
+  @keyframes cue { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+  .strip { background: rgba(7,7,6,.7); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); padding-inline: clamp(16px, 3vw, 32px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+  .strip div { padding: 26px 0; display: grid; gap: 4px; }
+  .strip div + div { padding-left: 32px; border-left: 1px solid var(--line); }
+  .strip dt { font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); }
+  .strip dd { margin: 0; font-family: var(--display); font-size: 1.5rem; line-height: 1.2; }
+
+  section { padding-block: clamp(56px, 8vw, 112px); }
+  .head { margin-bottom: clamp(32px, 5vw, 56px); max-width: 40rem; }
+
+  /* services showcase */
+  #servicos { border-top: 1px solid var(--line); }
+  .showcase { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+  .svc-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .svc { border-bottom: 1px solid var(--line); transition: border-color .3s; }
+  .svc.on { border-bottom-color: var(--gold-deep); }
+  .svc button { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 20px; width: 100%; padding: 28px 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+  .svc .ttl { font-family: var(--display); font-weight: 600; font-size: 1.9rem; line-height: 1.1; transition: color .25s; }
+  .svc .desc { grid-column: 1; color: var(--muted); max-width: 32em; font-size: 1rem; }
+  .svc .arr { grid-column: 2; grid-row: 1; color: var(--gold-deep); font-size: 1.4rem; transition: transform .3s, color .3s; align-self: center; }
+  .svc.on .ttl, .svc button:hover .ttl { color: var(--gold); }
+  .svc.on .arr { color: var(--gold); transform: translateX(6px); }
+  .svc-panel { position: sticky; top: 104px; border: 1px solid var(--gold-deep); background: #000; overflow: hidden; }
+  .svc-panel::before { content: ""; display: block; padding-top: 82%; }
+  .svc-img { position: absolute; inset: 6px; width: calc(100% - 12px); height: calc(100% - 12px); object-fit: cover; opacity: 0; transition: opacity .5s ease; }
+  .svc-img.on { opacity: 1; }
+  .svc-img.emblem { object-fit: contain; padding: 12%; background: #000; }
+
+  /* process */
+  #processo { border-top: 1px solid var(--line); }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+  .steps li { position: relative; display: grid; gap: 10px; align-content: start; }
+  .hex { position: relative; width: 64px; height: 56px; color: var(--gold); display: grid; place-items: center; font-family: var(--display); font-size: 1.7rem; font-weight: 600; }
+  .hex svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .steps li:not(:last-child)::after { content: ""; position: absolute; top: 28px; left: 76px; right: -20px; height: 1px; background: linear-gradient(to right, var(--gold-deep), var(--line)); }
+  .steps h3 { margin-top: 14px; }
+  .steps p { color: var(--muted); }
+
+  /* about */
+  #sobre { position: relative; overflow: hidden; background: var(--surface); margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-block: 1px solid var(--line); }
+  #sobre .wrap { position: relative; z-index: 1; }
+  .sobre-mark { position: absolute; right: -4%; bottom: -14%; width: min(520px, 60vw); opacity: .1; mix-blend-mode: lighten; pointer-events: none; }
+  .story { display: grid; gap: 20px; color: var(--muted); }
+  .story strong { color: var(--fg); font-weight: 500; }
+  #sobre h2 { margin-bottom: 30px; }
+  .lockup { border: 1px solid var(--gold-deep); padding: clamp(28px, 4vw, 44px); display: grid; gap: 26px; position: sticky; top: 100px; }
+  .lockup .row { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+  .lockup .big { font-family: var(--display); font-weight: 600; font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1; letter-spacing: 0.14em; color: var(--gold); }
+  .lockup .small { color: var(--muted); font-size: 0.95rem; letter-spacing: 0.06em; }
+  .lockup hr { border: 0; border-top: 1px solid var(--line); width: 100%; margin: 0; }
+  .lockup .note { font-family: var(--display); font-style: italic; font-size: 1.45rem; line-height: 1.3; color: var(--fg); }
+
+  /* two brands */
+  .brands { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--line); margin-top: clamp(40px, 6vw, 72px); }
+  .brands > div { padding: clamp(24px, 3.5vw, 40px); display: grid; gap: 10px; align-content: start; }
+  .brands > div + div { border-left: 1px solid var(--line); }
+  .brands .name { font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+  .brands p:last-child { font-family: var(--display); font-size: 1.7rem; line-height: 1.2; }
+
+  /* gallery */
+  .zoom { display: block; width: 100%; padding: 0; border: 1px solid var(--gold-deep); background: #000; cursor: zoom-in; overflow: hidden; position: relative; }
+  .zoom img { width: 100%; height: auto; display: block; transition: transform .7s ease; }
+  .zoom:hover img { transform: scale(1.04); }
+  .zoom::after { content: "+"; position: absolute; right: 12px; bottom: 12px; width: 34px; height: 34px; display: grid; place-items: center; background: rgba(7,7,6,.78); color: var(--gold); border: 1px solid var(--gold-deep); font-size: 1.3rem; line-height: 1; }
+  #lb[hidden] { display: none !important; }
+  #lb { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.93); display: grid; place-items: center; padding: 24px; cursor: zoom-out; }
+  #lb img { max-width: min(92vw, 900px); max-height: 86vh; object-fit: contain; border: 1px solid var(--gold-deep); }
+  #lb button { position: absolute; top: max(16px, env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); background: none; border: 1px solid var(--gold-deep); color: var(--gold); font: 500 0.8rem/1 var(--body); letter-spacing: 0.16em; text-transform: uppercase; padding: 12px 16px; cursor: pointer; }
+  .more {
+    border: 1px solid var(--gold-deep); padding: 32px; display: grid; gap: 18px; align-content: center;
+    aspect-ratio: 4 / 5.2; margin-top: 112px;
+  }
+  .more p { font-family: var(--display); font-size: 1.9rem; line-height: 1.15; }
+  .more .btn { justify-self: start; }
+
+
+  /* 3D simulator (CSS 3D, no libraries) */
+  .sim { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.85fr); gap: clamp(24px, 4vw, 56px); align-items: stretch; }
+  .sim-stage {
+    --a: 0deg; --c: #e8e2d4; --c2: #17130e; --grain: none; --ry: -24deg;
+    position: relative; overflow: hidden; border: 1px solid var(--gold-deep); height: clamp(440px, 44vw, 580px);
+    background: radial-gradient(ellipse 60% 55% at 50% 38%, #2b2113 0%, #120e09 60%, #070706 100%);
+    cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none;
+  }
+  .sim-stage.grabbing { cursor: grabbing; }
+  .sim-stage.open { --a: 104deg; }
+  .sim-stage::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 34%; background: linear-gradient(to top, rgba(208,168,78,.08), transparent); pointer-events: none; }
+  .scene { position: absolute; top: 0; left: 0; right: 0; bottom: 0; -webkit-perspective: 1500px; perspective: 1500px; -webkit-perspective-origin: 50% 38%; perspective-origin: 50% 38%; }
+  .rig, .cb, .pivot { -webkit-transform-style: preserve-3d; }
+  .rig { position: absolute; left: 50%; top: 52%; width: 0; height: 0; transform-style: preserve-3d; transform: rotateX(-7deg) rotateY(var(--ry)); }
+  .cb, .pivot, .door-wrap { position: absolute; left: 0; top: 0; width: 0; height: 0; transform-style: preserve-3d; }
+  .fc { position: absolute; left: 0; top: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    background-color: var(--c); background-image: linear-gradient(rgba(0,0,0,var(--sh,0)), rgba(0,0,0,var(--sh,0))), var(--grain); }
+  .dark .fc { background-color: var(--c2); }
+  .f-front { --sh: 0; } .f-right { --sh: .3; } .f-left { --sh: .22; } .f-top { --sh: .02; } .f-bottom { --sh: .6; } .f-back { --sh: .45; }
+  .plane { position: absolute; left: 0; top: 0; }
+  .back { background: linear-gradient(to bottom, #2a2118, #3a2e20); }
+  .led-on .back { background: radial-gradient(ellipse 90% 80% at 50% 45%, #d9c8a2, #a08a63 70%, #7a6847); }
+  .shadow { position: absolute; left: 0; top: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,.75) 0%, rgba(0,0,0,.35) 45%, transparent 70%); }
+  .led { background: #3a3226; box-shadow: none; transition: background .3s, box-shadow .3s; }
+  .led-on .led { background: #fff4d2; box-shadow: 0 0 9px 3px rgba(255,222,150,.7); }
+  .mv { transition: transform .95s cubic-bezier(.3,.7,.2,1); }
+  .door { position: absolute; box-sizing: border-box; border: 3px solid #a37a46; border-image: linear-gradient(135deg, #e7c98a, #8c6532 55%, #c79a56) 1;
+    background: linear-gradient(112deg, rgba(190,160,115,.34) 0%, rgba(255,240,210,.16) 34%, rgba(255,240,210,.05) 52%, rgba(140,108,70,.38) 100%); }
+  .door::after { content: ""; position: absolute; top: 12%; bottom: 12%; width: 3px; background: linear-gradient(#e7c98a, #8c6532); }
+  .door.hl::after { left: calc(100% - 12px); } .door.hr::after { left: 8px; }
+  .handle { background: linear-gradient(90deg, #e7c98a, #a37a46); }
+  .sim-hint { position: absolute; left: 18px; bottom: 16px; z-index: 2; font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; pointer-events: none; }
+  .sim-hint::before { content: "\2194"; color: var(--gold); font-size: 1.1rem; letter-spacing: 0; }
+  .sim-ui { display: grid; gap: 26px; align-content: start; }
+  .sim-ui fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .sim-ui legend, .sim-ui .lbl { font-size: .74rem; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); padding: 0; margin-bottom: 14px; display: flex; justify-content: space-between; width: 100%; }
+  .sim-ui .lbl output { color: var(--fg); letter-spacing: .08em; font-size: .95rem; }
+  .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .chip { position: relative; }
+  .chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; margin: 0; }
+  .chip span { display: flex; align-items: center; gap: 12px; padding: 11px 12px; border: 1px solid var(--line); font-size: .92rem; transition: border-color .2s, background .2s; }
+  .chip i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); flex: none; }
+  .chip input:checked + span { border-color: var(--gold); background: rgba(208,168,78,.08); }
+  .chip input:focus-visible + span { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .sim-ui input[type=range] { width: 100%; accent-color: var(--gold); }
+  .tgls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tgl { background: none; border: 1px solid var(--line); color: var(--fg); font: 500 .8rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; padding: 14px 10px; cursor: pointer; transition: border-color .2s, background .2s, color .2s; }
+  .tgl[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); background: rgba(208,168,78,.08); }
+  .sim-note { color: var(--muted); font-size: .88rem; }
+
+
+
+  /* about */
+  .about-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(36px, 7vw, 100px); align-items: center; }
+  .about-photo { position: relative; margin: 0; }
+  .about-photo::before { content: ""; position: absolute; top: 22px; right: -22px; bottom: -22px; left: 22px; border: 1px solid var(--gold-deep); }
+  .about-photo img { position: relative; width: 100%; height: auto; max-height: 640px; object-fit: cover; }
+  .about-photo figcaption { position: absolute; z-index: 1; left: -18px; bottom: 28px; background: var(--bg); border: 1px solid var(--gold-deep); padding: 14px 20px; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); display: grid; gap: 2px; }
+  .about-photo figcaption span { font-family: var(--display); font-size: 1.5rem; letter-spacing: .14em; color: var(--gold); line-height: 1.1; }
+  .pull { margin: clamp(56px, 8vw, 104px) 0 0; padding: 0; max-width: 56rem; }
+  .pull::before { content: "\201C"; display: block; font-family: var(--display); font-size: 6rem; line-height: .6; height: 44px; color: var(--gold); }
+  .pull p { font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.12; text-wrap: balance; }
+  .pull footer { margin: 24px 0 0; padding: 0; border: 0; color: var(--muted); max-width: 40em; }
+  .eq { display: grid; grid-template-columns: auto auto auto auto minmax(0, 1fr); gap: clamp(12px, 2vw, 28px); align-items: stretch; margin-top: clamp(48px, 7vw, 88px); }
+  .eq .op { align-self: center; font-family: var(--display); font-size: 2.4rem; color: var(--gold-deep); }
+  .eq-item { border: 1px solid var(--gold-deep); padding: clamp(20px, 3vw, 32px) clamp(22px, 3.4vw, 40px); display: grid; gap: 6px; align-content: center; }
+  .eq-item .big { font-family: var(--display); font-weight: 600; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; letter-spacing: .14em; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .eq-item .small { color: var(--muted); font-size: .92rem; letter-spacing: .06em; }
+  .eq-res { background: rgba(208,168,78,.06); border-color: var(--gold); }
+  .values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); margin-top: clamp(48px, 7vw, 88px); }
+  .val { border-top: 1px solid var(--gold-deep); padding-top: 26px; display: grid; gap: 12px; align-content: start; }
+  .val h3 { font-size: 1.9rem; }
+  .val p { color: var(--muted); }
+
+  /* simulator models */
+  .sim-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: clamp(22px, 3vw, 34px); }
+  .stab { background: none; border: 1px solid var(--line); color: var(--fg); font: 500 .84rem/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; padding: 15px 24px; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+  .stab:hover { border-color: var(--gold-deep); }
+  .stab[aria-pressed="true"] { background: var(--gold-grad); color: var(--on-gold); border-color: transparent; }
+  .k-white .fc, .k-stone .fc, .k-fabric .fc, .k-gold .fc, .lampshade .fc { background-image: linear-gradient(rgba(0,0,0,var(--sh,0)), rgba(0,0,0,var(--sh,0))); }
+  .k-white .fc { background-color: #efebe2; }
+  .k-stone .fc { background-color: #2a2a2e; }
+  .k-fabric .fc { background-color: #cdc6b8; }
+  .k-gold .fc { background-color: #c59a55; }
+  .lampshade .fc { background-color: #b9b1a1; transition: background-color .3s; }
+  .led-on .lampshade .fc { background-color: #ffeec2; }
+  .wall { background-color: #0e0c09; }
+  .marble { background: linear-gradient(118deg, transparent 0 34%, rgba(208,168,78,.32) 34.4% 34.9%, transparent 35.3% 66%, rgba(255,255,255,.14) 66.3% 66.7%, transparent 67%), linear-gradient(64deg, transparent 0 20%, rgba(255,255,255,.1) 20.3% 20.7%, transparent 21% 74%, rgba(208,168,78,.22) 74.3% 74.8%, transparent 75.2%), linear-gradient(#34343a, #1d1d21); box-shadow: inset 0 0 0 2px rgba(208,168,78,.25); }
+  .kwall { background: linear-gradient(#1c1913, #0f0d0a); }
+  .tile { background-color: #d9d2c2; background-image: linear-gradient(rgba(0,0,0,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.2) 1px, transparent 1px); background-size: 40px 22px; }
+  .slats { background: repeating-linear-gradient(90deg, #15110b 0 24px, #1f1810 24px 28px); box-shadow: inset 0 0 0 2px rgba(208,168,78,.2); }
+  .mirror { box-sizing: border-box; border: 3px solid #a37a46; background: linear-gradient(120deg, #cdd4d6, #8d989b 55%, #c6cccd); }
+  .glow { opacity: 0; transition: opacity .4s; pointer-events: none; }
+  .led-on .glow { opacity: 1; }
+  .mirglow { box-shadow: 0 0 36px 12px rgba(255,220,150,.6); }
+  .wallglow { background: linear-gradient(to top, rgba(255,214,150,0), rgba(255,214,150,.55)); }
+  .kglow { background: linear-gradient(to bottom, rgba(255,222,160,.6), rgba(255,222,160,0)); }
+  .hbglow { box-shadow: 0 0 60px 24px rgba(255,214,150,.55); }
+  .floorg { background: radial-gradient(ellipse at center, rgba(255,210,140,.4), transparent 68%); }
+  .hob { background: radial-gradient(circle at 27% 28%, transparent 0 13%, rgba(208,168,78,.8) 14% 16%, transparent 17%), radial-gradient(circle at 73% 28%, transparent 0 10%, rgba(208,168,78,.8) 11% 13%, transparent 14%), radial-gradient(circle at 27% 74%, transparent 0 10%, rgba(208,168,78,.8) 11% 13%, transparent 14%), radial-gradient(circle at 73% 74%, transparent 0 13%, rgba(208,168,78,.8) 14% 16%, transparent 17%), #0c0c0f; }
+  .sink { background: linear-gradient(135deg, #c9c8c4, #8e8d8a); box-shadow: inset 0 0 0 3px #b5b4b0; }
+  .basin { border-radius: 50%; background: radial-gradient(circle, #c9c4b8 0%, #ebe7dd 70%); box-shadow: inset 0 0 0 3px #f1eee6; }
+  .door.solid { background-color: var(--c); background-image: var(--grain); border: 1px solid rgba(0,0,0,.45); border-image: none; }
+  .sim-fb { position: absolute; left: 20px; right: 20px; top: 50%; transform: translateY(-50%); text-align: center; color: var(--muted); font-size: .95rem; z-index: 5; }
+  .gal-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px; margin-top: clamp(32px, 5vw, 56px); padding-top: 28px; border-top: 1px solid var(--line); }
+  .gal-foot p { font-family: var(--display); font-size: 1.7rem; line-height: 1.2; }
+  .slot { display: block; position: relative; border: 1px dashed var(--gold-deep); background: linear-gradient(160deg, #15110a, #0b0906); }
+  .slot::before { content: ""; display: block; padding-top: 128%; }
+  .slot span { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); display: grid; justify-items: center; gap: 16px; font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
+  .slot span::before { content: ""; width: 44px; height: 48px; background: var(--gold-deep); opacity: .5; clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+
+  .gallery { column-count: 3; column-gap: clamp(12px, 2vw, 24px); }
+  .gallery .g-item { margin: 0 0 clamp(12px, 2vw, 24px); break-inside: avoid; -webkit-column-break-inside: avoid; }
+  .gfilters { margin-bottom: clamp(24px, 4vw, 40px); }
+
+  /* simplified hero */
+  .hero::before, .cue { display: none; }
+  .hero h1 { font-weight: 500; font-size: clamp(2.8rem, 5.6vw, 4.8rem); line-height: 1.04; letter-spacing: -0.005em; margin-bottom: 22px; text-shadow: none; }
+  .hero h1::before { content: ""; display: block; width: 56px; height: 1px; background: var(--gold); margin-bottom: 28px; }
+  .hero .lead { font-size: 1.1rem; max-width: 29em; margin-bottom: 34px; text-shadow: none; }
+  .hero .wrap.main { min-height: clamp(520px, 78vh, 740px); }
+  .hero .main > div::before { display: none; }
+  .hero-bg { filter: brightness(.72) contrast(1.04); }
+
+  .hero h1::before { display: none; }
+  .hero-logo { display: block; width: clamp(180px, 19vw, 250px); height: auto; margin: 0 0 26px; animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+
+  /* hero with logo as main visual */
+  .hero .wrap.main { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .hero-mark { position: relative; display: grid; place-items: center; padding: 24px; }
+  .hero-mark::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 50%, rgba(208,168,78,.2), transparent 62%); pointer-events: none; }
+  .hero-mark img { position: relative; width: min(100%, 540px); height: auto; animation: rise 1s cubic-bezier(.2,.7,.2,1) .1s both; }
+
+  /* contact */
+  #contactos { border-top: 1px solid var(--line); }
+  .contact { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+  .contact .lead { margin: 24px 0 32px; }
+  .details { border-top: 1px solid var(--line); }
+  .detail { display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; gap: 8px 20px; align-items: center; padding-block: 22px; border-bottom: 1px solid var(--line); }
+  .detail dt { color: var(--gold); font-size: 0.76rem; letter-spacing: 0.24em; text-transform: uppercase; }
+  .detail dd { margin: 0; font-size: 1.12rem; overflow-wrap: anywhere; }
+  .detail dd a { text-decoration: none; border-bottom: 1px solid var(--gold-deep); }
+  .detail dd a:hover { color: var(--gold); }
+  .copy { background: none; border: 1px solid var(--line); color: var(--muted); font: 500 0.72rem/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase; padding: 9px 12px; cursor: pointer; transition: border-color .2s, color .2s; }
+  .copy:hover { border-color: var(--gold); color: var(--gold); }
+
+  footer { border-top: 1px solid var(--line); padding-block: 36px; margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; color: var(--muted); font-size: 0.88rem; letter-spacing: 0.04em; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+
+  /* style layer */
+  body::after { content: ""; position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: .07; mix-blend-mode: overlay; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+  .hero h1 em, .lockup .big { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .btn.solid { background: var(--gold-grad); box-shadow: 0 10px 30px -14px rgba(208,168,78,.7); }
+  .btn.solid:hover { background: var(--fg); border-color: var(--fg); }
+  .head::after { content: ""; display: block; width: 72px; height: 1px; background: var(--gold-grad); margin-top: 26px; }
+  .bar img.logo { transition: height .25s ease; }
+  .bar.scrolled img.logo { height: 46px; }
+  @keyframes reveal { from { opacity: .25; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  .hero .eyebrow, .hero h1, .hero .lead, .hero .actions { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .hero h1 { animation-delay: .12s; }
+  .hero .lead { animation-delay: .26s; }
+  .hero .actions { animation-delay: .4s; }
+  @keyframes drift { from { transform: scale(1.07); } to { transform: scale(1); } }
+  .hero-bg { animation: drift 2.6s ease-out both; }
+  @keyframes parallax { to { transform: translateY(80px) scale(1.05); } }
+  @supports (animation-timeline: view()) {
+    .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 38%; }
+    .hero-bg { animation: parallax linear both; animation-timeline: scroll(root); animation-range: 0 720px; }
+  }
+  .marquee { margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))); overflow: hidden; padding-block: 24px; border-bottom: 1px solid var(--line); }
+  .track { display: flex; width: max-content; animation: slide 46s linear infinite; }
+  .track > * { margin-right: 38px; }
+  .track span { font-family: var(--display); font-size: clamp(1.7rem, 3.6vw, 2.7rem); letter-spacing: .08em; text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px var(--gold-deep); white-space: nowrap; line-height: 1.2; }
+  .track i { width: 12px; height: 13px; align-self: center; flex: none; background: var(--gold); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+  @keyframes slide { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .cue i, .track, .hero-bg, .reveal, .hero .eyebrow, .hero h1, .hero .lead, .hero .actions { animation: none !important; } }
+
+  @media (max-width: 900px) {
+    .burger { display: block; }
+    .bar nav { display: none; }
+    .bar nav.open { display: flex; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--gold-deep); padding: 8px max(16px, env(safe-area-inset-right, 0px)) 20px max(16px, env(safe-area-inset-left, 0px)); box-shadow: 0 30px 50px -20px rgba(0,0,0,.8); }
+    .bar nav.open a { font-family: var(--display); font-size: 1.7rem; letter-spacing: 0.02em; text-transform: none; color: var(--fg); padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .bar nav.open a:last-child { border-bottom: 0; }
+    .bar nav.open a:hover { color: var(--gold); }
+    .hero .wrap.main { grid-template-columns: minmax(0, 1fr); }
+    .hero-mark { order: -1; padding: 8px 0 0; }
+    .hero-mark img { width: min(72%, 280px); }
+    .contact { grid-template-columns: minmax(0, 1fr); }
+    .hero-bg { width: 100%; opacity: .55; }
+    .hero .wrap.main { min-height: 560px; }
+    .hero::before { inset: 10px; }
+    .cue { display: none; }
+    .hero-bg { object-position: 30% 100%; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 55%); mask-image: linear-gradient(to bottom, transparent 0%, #000 55%); }
+    .hero .lead { color: #cfc6b2; }
+    .hero .btn:not(.solid) { background: rgba(7,7,6,.6); }
+    .lockup { position: static; }
+    .showcase { grid-template-columns: minmax(0, 1fr); }
+    .about-grid { grid-template-columns: minmax(0, 1fr); }
+    .gallery { column-count: 2; }
+    .about-photo { max-width: 480px; margin-right: 22px; }
+    .eq { grid-template-columns: minmax(0, 1fr); }
+    .eq .op { justify-self: center; font-size: 2rem; line-height: 1; }
+    .values { grid-template-columns: minmax(0, 1fr); }
+    .sim { grid-template-columns: minmax(0, 1fr); }
+    .svc-panel { position: relative; top: auto; margin: 0 0 28px; max-width: 460px; }
+    .svc-panel::before { padding-top: 78%; }
+    .steps { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .steps li { grid-template-columns: 64px minmax(0, 1fr); column-gap: 22px; padding-bottom: 34px; }
+    .steps li .hex { grid-row: 1 / span 2; }
+    .steps h3 { margin-top: 0; align-self: end; }
+    .steps li:not(:last-child)::after { top: 64px; bottom: 6px; left: 32px; right: auto; width: 1px; height: auto; background: var(--gold-deep); }
+    .services li { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .bar img.logo { height: 52px; }
+    .brands { grid-template-columns: minmax(0, 1fr); }
+    .brands > div + div { border-left: 0; border-top: 1px solid var(--line); }
+    .slot span { font-size: .62rem; letter-spacing: .18em; }
+    .gal-foot p { font-size: 1.4rem; }
+    .svc .ttl { font-size: 1.6rem; }
+    .gfilters { gap: 8px; }
+    .gfilters .stab { padding: 11px 13px; font-size: .68rem; letter-spacing: .1em; }
+    .sim-stage { height: min(118vw, 560px); }
+    .btn { line-height: 1.35; text-align: center; }
+    .detail { grid-template-columns: minmax(0, 1fr) auto; }
+    .detail dt { grid-column: 1 / -1; }
+    .actions .btn { flex: 1 1 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a href="#topo" aria-label="Marcarwood, início"><img class="logo" src="img/logo.jpg" alt="Marcarwood, mobiliário por medida"></a>
+    <nav aria-label="Principal" id="mainNav">
+      <a href="#servicos">Serviços</a>
+      <a href="#simulador">Simulador 3D</a>
+      <a href="#sobre">Quem somos</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#contactos">Contactos</a>
+    </nav>
+    <div class="bar-end">
+      <a class="btn small" href="#contactos">Pedir orçamento</a>
+      <button class="burger" type="button" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="hero">
+    <div class="wrap main">
+      <div>
+        <h1>Mobiliário por medida.</h1>
+        <p class="lead">Cozinhas, casas de banho, quartos e espaços comerciais. Projeto personalizado, pensado ao pormenor, em Guimarães.</p>
+        <div class="actions">
+          <a class="btn solid" href="https://wa.me/351937571090?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento%20de%20mobili%C3%A1rio%20por%20medida." target="_blank" rel="noopener">Pedir orçamento</a>
+          <a class="btn" href="#trabalhos">Ver trabalhos</a>
+        </div>
+      </div>
+      <div class="hero-mark">
+        <img src="img/logo-hero.png" alt="Marcarwood, mobiliário por medida" width="588" height="416">
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="track"><span>Mobiliário por medida</span><i></i><span>Cozinhas</span><i></i><span>Casas de banho</span><i></i><span>Quartos</span><i></i><span>Roupeiros</span><i></i><span>Espaços comerciais</span><i></i><span>Guimarães</span><i></i><span>Mobiliário por medida</span><i></i><span>Cozinhas</span><i></i><span>Casas de banho</span><i></i><span>Quartos</span><i></i><span>Roupeiros</span><i></i><span>Espaços comerciais</span><i></i><span>Guimarães</span><i></i></div></div>
+
+  <section id="servicos">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">O que fazemos</span>
+        <h2>Cada espaço, desenhado à sua medida.</h2>
+      </div>
+      <div class="showcase">
+        <ul class="svc-list">
+          <li class="svc on">
+            <button type="button" aria-pressed="true"><span class="ttl">Cozinhas</span><span class="arr" aria-hidden="true">→</span><span class="desc">Funcionalidade e design à medida do seu espaço.</span></button>
+          </li>
+          <li class="svc">
+            <button type="button" aria-pressed="false"><span class="ttl">Casas de banho</span><span class="arr" aria-hidden="true">→</span><span class="desc">Mobiliário pensado ao detalhe.</span></button>
+          </li>
+          <li class="svc">
+            <button type="button" aria-pressed="false"><span class="ttl">Quartos e roupeiros</span><span class="arr" aria-hidden="true">→</span><span class="desc">Organização e conforto por medida.</span></button>
+          </li>
+          <li class="svc">
+            <button type="button" aria-pressed="false"><span class="ttl">Espaços comerciais</span><span class="arr" aria-hidden="true">→</span><span class="desc">Soluções de mobiliário para o seu negócio.</span></button>
+          </li>
+        </ul>
+        <div class="svc-panel" id="svcPanel">
+          <img class="svc-img on" src="img/galeria/cozinhas-5.jpg" alt="Cozinha verde com armários altos em madeira e iluminação LED">
+          <img class="svc-img" src="img/galeria/banho-3.jpg" alt="Móvel de casa de banho com bancada, lavatório e painel de ripas">
+          <img class="svc-img" src="img/roupeiro-vidro.jpg" alt="Roupeiro com portas de vidro e iluminação LED" style="object-position: 50% 40%">
+          <img class="svc-img" src="img/galeria/comerciais-1.jpg" alt="Café com balcão curvo revestido a madeira e candeeiros de vime">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulador">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Simulador 3D</span>
+        <h2>Escolha o espaço e veja-o em 3D.</h2>
+      </div>
+      <div class="sim-tabs" id="simTabs" role="group" aria-label="Escolha o espaço">
+        <button class="stab" type="button" data-m="banho" aria-pressed="true">Casa de banho</button>
+        <button class="stab" type="button" data-m="cozinha" aria-pressed="false">Cozinha</button>
+        <button class="stab" type="button" data-m="quarto" aria-pressed="false">Quarto</button>
+      </div>
+      <div class="sim">
+        <div class="sim-stage led-on" id="simStage" aria-label="Modelo 3D. Arraste para rodar.">
+          <div class="scene"><div class="rig" id="simRig"></div></div>
+          <p class="sim-fb" id="simFb" hidden>Este telemóvel não consegue mostrar o modelo 3D. Pode na mesma pedir o orçamento com as opções escolhidas.</p>
+          <span class="sim-hint">Arraste para rodar</span>
+        </div>
+        <div class="sim-ui">
+          <fieldset>
+            <legend>Acabamento</legend>
+            <div class="chips" id="simFin"></div>
+          </fieldset>
+          <div>
+            <label class="lbl" for="simW"><span id="simWlbl">Largura</span><output id="simWout" for="simW">1,0 m</output></label>
+            <input type="range" id="simW" min="0.8" max="1.6" step="0.2" value="1">
+          </div>
+          <div class="tgls">
+            <button class="tgl" type="button" id="simOpen" aria-pressed="false">Abrir gavetas</button>
+            <button class="tgl" type="button" id="simLed" aria-pressed="true">Luz LED</button>
+          </div>
+          <p class="sim-note" id="simNote"></p>
+          <a class="btn solid" id="simCta" href="#contactos" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="processo">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Como trabalhamos</span>
+        <h2>Da primeira conversa à montagem.</h2>
+      </div>
+      <ol class="steps">
+        <li class="reveal"><span class="hex"><svg viewBox="0 0 64 56" aria-hidden="true"><polygon points="16,2 48,2 62,28 48,54 16,54 2,28" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>1</span></span><h3>Conversa</h3><p>Ouvimos a sua ideia e percebemos como vive o espaço.</p></li>
+        <li class="reveal"><span class="hex"><svg viewBox="0 0 64 56" aria-hidden="true"><polygon points="16,2 48,2 62,28 48,54 16,54 2,28" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>2</span></span><h3>Medidas e projeto</h3><p>Medimos o local e desenhamos o móvel, com materiais, acabamentos e iluminação.</p></li>
+        <li class="reveal"><span class="hex"><svg viewBox="0 0 64 56" aria-hidden="true"><polygon points="16,2 48,2 62,28 48,54 16,54 2,28" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>3</span></span><h3>Fabrico</h3><p>O mobiliário é produzido à medida, com atenção a cada pormenor.</p></li>
+        <li class="reveal"><span class="hex"><svg viewBox="0 0 64 56" aria-hidden="true"><polygon points="16,2 48,2 62,28 48,54 16,54 2,28" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>4</span></span><h3>Montagem</h3><p>Instalamos e entregamos o espaço pronto a usar.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <img class="sobre-mark" src="img/logo.jpg" alt="">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <span class="eyebrow">Quem somos</span>
+          <h2>Nascemos de uma história de família para fazer parte da sua.</h2>
+          <div class="story reveal">
+            <p>Toda a grande história começa com uma ideia. A nossa nasceu da experiência, da dedicação e de uma ligação familiar.</p>
+            <p>Ao longo dos anos, a <strong>Marcarobras</strong> foi construindo a sua trajetória na construção e remodelação, acompanhando projetos, transformando espaços e conhecendo de perto as necessidades de cada cliente. Dessa experiência, e da vontade de oferecer soluções cada vez mais completas, personalizadas e de qualidade, surgiu a <strong>Marcarwood</strong>.</p>
+          </div>
+        </div>
+        <figure class="about-photo reveal">
+          <img src="img/roupeiro-vidro.jpg" alt="Roupeiro por medida com portas de vidro e iluminação LED, projeto da Marcarwood" width="622" height="832" loading="lazy">
+          <figcaption><span>Marcarwood</span>Mobiliário por medida</figcaption>
+        </figure>
+      </div>
+
+      <blockquote class="pull reveal">
+        <p>Mais do que criar mobiliário, queremos fazer parte de histórias.</p>
+        <footer>Por trás de cada cozinha, roupeiro ou espaço idealizado existe uma família, um sonho e uma forma única de viver.</footer>
+      </blockquote>
+
+      <div class="eq reveal" aria-label="Origem do nome Marcarwood">
+        <div class="eq-item"><span class="big">MAR</span><span class="small">de Marco</span></div>
+        <span class="op" aria-hidden="true">+</span>
+        <div class="eq-item"><span class="big">CAR</span><span class="small">de Carlos</span></div>
+        <span class="op" aria-hidden="true">=</span>
+        <div class="eq-item eq-res"><span class="big">MARCAR</span><span class="small">Dois irmãos, dois nomes e uma visão em comum.</span></div>
+      </div>
+
+      <div class="values">
+        <div class="val reveal"><h3>Projeto à medida</h3><p>Cada projeto é pensado ao pormenor, respeitando os gostos, as necessidades e a personalidade de quem confia em nós.</p></div>
+        <div class="val reveal"><h3>Feito em família</h3><p>Uma marca que representa os valores, a dedicação e os sonhos de uma família, e que quer fazer parte da sua.</p></div>
+        <div class="val reveal"><h3>Experiência de obra</h3><p>Vimos da construção e da remodelação, por isso conhecemos de perto os espaços e as necessidades de cada cliente.</p></div>
+      </div>
+
+      <div class="brands reveal">
+        <div>
+          <p class="name">Marcarobras</p>
+          <p>Constrói e transforma espaços.</p>
+        </div>
+        <div>
+          <p class="name">Marcarwood</p>
+          <p>Dá-lhes identidade, conforto e vida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trabalhos">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Trabalhos</span>
+        <h2>Alguns projetos Marcarwood.</h2>
+      </div>
+      <div class="sim-tabs gfilters reveal" id="gFilters" role="group" aria-label="Filtrar projetos">
+        <button class="stab" type="button" data-c="todos" aria-pressed="true">Todos</button>
+        <button class="stab" type="button" data-c="cozinhas" aria-pressed="false">Cozinhas</button>
+        <button class="stab" type="button" data-c="banho" aria-pressed="false">Casas de banho</button>
+        <button class="stab" type="button" data-c="quartos" aria-pressed="false">Quartos e roupeiros</button>
+        <button class="stab" type="button" data-c="comerciais" aria-pressed="false">Espaços comerciais</button>
+      </div>
+      <div class="gallery" id="gGallery">
+        <figure class="g-item reveal" data-c="cozinhas"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/cozinhas-1.jpg" alt="Cozinha em L com armários cor de vinho e frigorífico preto" loading="lazy" width="389" height="291"></button></figure>
+        <figure class="g-item reveal" data-c="banho"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/banho-1.jpg" alt="Móvel suspenso em madeira com dois lavatórios de bancada" loading="lazy" width="335" height="448"></button></figure>
+        <figure class="g-item reveal" data-c="quartos"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/quartos-1.jpg" alt="Roupeiro com portas de vidro e iluminação LED" loading="lazy" width="335" height="451"></button></figure>
+        <figure class="g-item reveal" data-c="comerciais"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/comerciais-1.jpg" alt="Café com balcão curvo revestido a madeira e candeeiros de vime" loading="lazy" width="551" height="412"></button></figure>
+        <figure class="g-item reveal" data-c="cozinhas"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/cozinhas-2.jpg" alt="Cozinha branca com ilha e placa de indução" loading="lazy" width="218" height="291"></button></figure>
+        <figure class="g-item reveal" data-c="banho"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/banho-2.jpg" alt="Casa de banho com móvel suspenso e candeeiros circulares luminosos" loading="lazy" width="334" height="448"></button></figure>
+        <figure class="g-item reveal" data-c="quartos"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/quartos-2.jpg" alt="Roupeiro de canto com gavetas e prateleiras iluminadas" loading="lazy" width="336" height="451"></button></figure>
+        <figure class="g-item reveal" data-c="comerciais"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/comerciais-2.jpg" alt="Sala de café com mesas, cadeiras e pavimento em madeira" loading="lazy" width="550" height="412"></button></figure>
+        <figure class="g-item reveal" data-c="cozinhas"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/cozinhas-3.jpg" alt="Cozinha cinzenta em L com bancada em granito" loading="lazy" width="387" height="292"></button></figure>
+        <figure class="g-item reveal" data-c="banho"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/banho-3.jpg" alt="Móvel de casa de banho com bancada, lavatório e painel de ripas" loading="lazy" width="550" height="412"></button></figure>
+        <figure class="g-item reveal" data-c="quartos"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/quartos-3.jpg" alt="Móvel com painel de ripas em madeira" loading="lazy" width="551" height="414"></button></figure>
+        <figure class="g-item reveal" data-c="comerciais"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/comerciais-3.jpg" alt="Espaço comercial com mesas e balcão ao fundo" loading="lazy" width="551" height="412"></button></figure>
+        <figure class="g-item reveal" data-c="cozinhas"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/cozinhas-4.jpg" alt="Cozinha em madeira com iluminação LED sob os armários" loading="lazy" width="217" height="291"></button></figure>
+        <figure class="g-item reveal" data-c="banho"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/banho-4.jpg" alt="Móvel de casa de banho com espelho e iluminação circular" loading="lazy" width="550" height="412"></button></figure>
+        <figure class="g-item reveal" data-c="quartos"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/quartos-4.jpg" alt="Móvel de TV com painel de ripas e iluminação LED" loading="lazy" width="550" height="413"></button></figure>
+        <figure class="g-item reveal" data-c="comerciais"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/comerciais-4.jpg" alt="Balcão expositor em vidro e mármore num espaço comercial" loading="lazy" width="550" height="412"></button></figure>
+        <figure class="g-item reveal" data-c="cozinhas"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/cozinhas-5.jpg" alt="Cozinha verde com armários altos em madeira e iluminação LED" loading="lazy" width="437" height="291"></button></figure>
+        <figure class="g-item reveal" data-c="cozinhas"><button class="zoom" type="button" aria-label="Ampliar foto"><img src="img/galeria/cozinhas-6.jpg" alt="Cozinha branca em L com torre de forno e frigorífico" loading="lazy" width="389" height="291"></button></figure>
+      </div>
+      <div class="gal-foot reveal">
+        <p>Mais projetos no nosso Instagram.</p>
+        <a class="btn" href="https://www.instagram.com/marcarwoodpt/" target="_blank" rel="noopener">@marcarwoodpt</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contactos">
+    <div class="wrap contact">
+      <div>
+        <span class="eyebrow">Contactos</span>
+        <h2>Conte-nos a ideia para o seu espaço.</h2>
+        <p class="lead">Envie-nos uma mensagem com o que imagina e entramos em contacto consigo para pedir um orçamento.</p>
+        <a class="btn solid" href="https://wa.me/351937571090?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento%20de%20mobili%C3%A1rio%20por%20medida." target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+      </div>
+      <dl class="details reveal" style="margin:0">
+        <div class="detail">
+          <dt>Telefone</dt>
+          <dd id="tel"><a href="tel:+351937571090">+351 937 571 090</a></dd>
+          <button class="copy" type="button" data-target="tel">Copiar</button>
+        </div>
+        <div class="detail">
+          <dt>Email</dt>
+          <dd id="mail"><a href="mailto:marcarwoodcomercial@gmail.com">marcarwoodcomercial@gmail.com</a></dd>
+          <button class="copy" type="button" data-target="mail">Copiar</button>
+        </div>
+        <div class="detail">
+          <dt>Morada</dt>
+          <dd id="addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+14+de+Dezembro+1447+4835-143+Polvoreira+Guimar%C3%A3es" target="_blank" rel="noopener">Rua 14 de Dezembro, 1447<br>4835-143 Polvoreira, Guimarães<br>Portugal</a></dd>
+          <button class="copy" type="button" data-target="addr">Copiar</button>
+        </div>
+        <div class="detail">
+          <dt>Instagram</dt>
+          <dd><a href="https://www.instagram.com/marcarwoodpt/" target="_blank" rel="noopener">@marcarwoodpt</a></dd>
+          <span></span>
+        </div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Marcarwood · Mobiliário por medida · Guimarães</span>
+    <span>Uma marca da família Marcarobras</span>
+  </div>
+</footer>
+
+<div id="lb" hidden><button type="button">Fechar</button><img alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
+
+<script>
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var el = document.getElementById(btn.dataset.target);
+      var text = el.innerText.replace(/\s*\n\s*/g, ', ').trim();
+      var done = function () { btn.textContent = 'Copiado'; setTimeout(function () { btn.textContent = 'Copiar'; }, 1800); };
+      var select = function () {
+        try { var r = document.createRange(); r.selectNodeContents(el); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selecionado'; setTimeout(function () { btn.textContent = 'Copiar'; }, 1800); } catch (e) {}
+      };
+      try { navigator.clipboard.writeText(text).then(done, select); } catch (e) { select(); }
+    });
+  });
+
+  (function () {
+    var items = [].slice.call(document.querySelectorAll('.svc'));
+    var panel = document.getElementById('svcPanel');
+    var home = panel.parentNode;
+    var imgs = [].slice.call(panel.querySelectorAll('.svc-img'));
+    var mq = window.matchMedia('(max-width: 900px)');
+    var hoverOk = window.matchMedia('(hover: hover)').matches;
+    var cur = 0;
+    function select(i) {
+      cur = i;
+      items.forEach(function (el, n) {
+        el.classList.toggle('on', n === i);
+        el.querySelector('button').setAttribute('aria-pressed', n === i ? 'true' : 'false');
+      });
+      imgs.forEach(function (im, n) { im.classList.toggle('on', n === i); });
+      if (mq.matches) { items[i].appendChild(panel); }
+      else if (panel.parentNode !== home) { home.appendChild(panel); }
+    }
+    items.forEach(function (el, n) {
+      var b = el.querySelector('button');
+      b.addEventListener('click', function () { select(n); });
+      if (hoverOk) b.addEventListener('mouseenter', function () { if (!mq.matches) select(n); });
+    });
+    if (mq.addEventListener) mq.addEventListener('change', function () { select(cur); });
+    select(0);
+
+    var lb = document.getElementById('lb');
+    var lbi = lb.querySelector('img');
+    function closeLb() { lb.hidden = true; }
+    [].forEach.call(document.querySelectorAll('.zoom'), function (z) {
+      z.addEventListener('click', function () {
+        var im = z.querySelector('img');
+        lbi.src = im.src; lbi.alt = im.alt; lb.hidden = false;
+        lb.querySelector('button').focus();
+      });
+    });
+    lb.addEventListener('click', closeLb);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+  })();
+
+  (function () {
+    var bar = document.querySelector('.bar');
+    function on() { bar.classList.toggle('scrolled', window.scrollY > 40); }
+    window.addEventListener('scroll', on, { passive: true }); on();
+  })();
+
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    var stage = $('simStage'), rig = $('simRig'), tabs = $('simTabs'), finWrap = $('simFin'), wIn = $('simW'), wOut = $('simWout'), wLbl = $('simWlbl');
+    var bOpen = $('simOpen'), bLed = $('simLed'), cta = $('simCta'), note = $('simNote'), fb = $('simFb');
+    var FIN = [
+      { id: 'perola', name: 'Branco pérola', c: '#e9e3d5', grain: false },
+      { id: 'carvalho', name: 'Carvalho natural', c: '#b98a52', grain: true },
+      { id: 'nogueira', name: 'Nogueira', c: '#5d3c26', grain: true },
+      { id: 'antracite', name: 'Antracite', c: '#34343a', grain: false }
+    ];
+    var GRAIN = 'repeating-linear-gradient(90deg, rgba(0,0,0,.07) 0 2px, rgba(255,255,255,.03) 2px 5px, transparent 5px 11px)';
+    var st = { m: 'banho', w: 1.0, fin: 0, open: false, led: true }, widths = {}, ctx = { u: 100, yc: 1 }, movers = [];
+    var ry = -24, base = -24, auto = !window.matchMedia('(prefers-reduced-motion: reduce)').matches, drag = null, visible = false, raf = 0;
+    try { if (!(window.CSS && CSS.supports && (CSS.supports('transform-style', 'preserve-3d') || CSS.supports('-webkit-transform-style', 'preserve-3d')))) fb.hidden = false; } catch (e0) {}
+
+    function el(cls, parent) { var d = document.createElement('div'); if (cls) d.className = cls; if (parent) parent.appendChild(d); return d; }
+    function px(n) { return n.toFixed(2) + 'px'; }
+    function P(m) { return m * ctx.u; }
+    function Yp(m) { return (ctx.yc - m) * ctx.u; }
+    function plane(parent, cls, w, h, x, y, z) {
+      var d = el('plane ' + cls, parent);
+      d.style.width = px(w); d.style.height = px(h);
+      d.style.transform = 'translate3d(' + px(x - w / 2) + ',' + px(y - h / 2) + ',' + px(z) + ')';
+      return d;
+    }
+    function cub(parent, w, h, d, x, y, z, faces, cls) {
+      var c = el('cb ' + (cls || ''), parent);
+      c.style.transform = 'translate3d(' + px(x) + ',' + px(y) + ',' + px(z) + ')';
+      var defs = {
+        f: ['f-front', w, h, 'translateZ(' + px(d / 2) + ')'],
+        k: ['f-back', w, h, 'rotateY(180deg) translateZ(' + px(d / 2) + ')'],
+        r: ['f-right', d, h, 'rotateY(90deg) translateZ(' + px(w / 2) + ')'],
+        l: ['f-left', d, h, 'rotateY(-90deg) translateZ(' + px(w / 2) + ')'],
+        t: ['f-top', w, d, 'rotateX(90deg) translateZ(' + px(h / 2) + ')'],
+        b: ['f-bottom', w, d, 'rotateX(-90deg) translateZ(' + px(h / 2) + ')']
+      };
+      faces.split('').forEach(function (k) {
+        var f = defs[k], n = el('fc ' + f[0], c);
+        n.style.width = px(f[1]); n.style.height = px(f[2]);
+        n.style.marginLeft = px(-f[1] / 2); n.style.marginTop = px(-f[2] / 2);
+        n.style.transform = f[3];
+      });
+      return c;
+    }
+    // metre-based helpers: x right, y height above floor (centre), z towards viewer
+    function B(par, w, h, d, x, y, z, faces, cls) { return cub(par, P(w), P(h), P(d), P(x), Yp(y), P(z), faces, cls); }
+    function Pl(par, cls, w, h, x, y, z) { return plane(par, cls, P(w), P(h), P(x), Yp(y), P(z)); }
+    function Pf(par, cls, w, d, x, y, z) { var e = plane(par, cls, P(w), P(d), P(x), Yp(y), P(z)); e.style.transform += ' rotateX(90deg)'; return e; }
+    function cyl(par, r, h, x, y, z, cls, n) {
+      n = n || 14;
+      var g = el('cb ' + (cls || ''), par), rp = P(r), hp = P(h), sw = 2 * Math.PI * rp / n * 1.05;
+      g.style.transform = 'translate3d(' + px(P(x)) + ',' + px(Yp(y)) + ',' + px(P(z)) + ')';
+      for (var k = 0; k < n; k++) {
+        var ang = k * 360 / n, f = el('fc f-front', g);
+        f.style.width = px(sw); f.style.height = px(hp); f.style.marginLeft = px(-sw / 2); f.style.marginTop = px(-hp / 2);
+        f.style.transform = 'rotateY(' + ang.toFixed(1) + 'deg) translateZ(' + px(rp) + ')';
+        f.style.setProperty('--sh', (0.42 * (1 - Math.cos((ang - 25) * Math.PI / 180)) / 2).toFixed(2));
+      }
+      var tp = el('fc f-top', g);
+      tp.style.width = px(2 * rp); tp.style.height = px(2 * rp); tp.style.marginLeft = px(-rp); tp.style.marginTop = px(-rp);
+      tp.style.borderRadius = '50%'; tp.style.transform = 'rotateX(90deg) translateZ(' + px(hp / 2) + ')';
+      return g;
+    }
+    function mover(par, x, y, z, ex) {
+      var w = el('cb mv', par);
+      w._c = 'translate3d(' + px(x) + ',' + px(y) + ',' + px(z) + ')';
+      w._o = ex ? 'translate3d(' + px(x) + ',' + px(y) + ',' + px(z + ex) + ')' : w._c;
+      w.style.transform = w._c; movers.push(w); return w;
+    }
+    function drawer(par, w, h, x, y, z, trayD, slide, delay) {
+      var wr = mover(par, P(x), Yp(y), P(z), P(slide || 0.3));
+      wr.style.transitionDelay = (delay || 0).toFixed(2) + 's';
+      cub(wr, P(w), P(h), P(0.02), 0, 0, 0, 'frltb', '');
+      cub(wr, P(w - 0.05), P(h * 0.72), P(trayD), 0, 0, -P(0.01 + trayD / 2), 'ftlrb', 'k-white');
+      plane(wr, 'handle', P(Math.min(w * 0.34, 0.2)), 4, 0, -P(h * 0.18), P(0.013));
+      return wr;
+    }
+    function door(par, w, h, hx, y, z, left, solid, delay) {
+      var pv = mover(par, P(hx), Yp(y), P(z), 0);
+      pv.className = 'pivot mv';
+      pv._o = pv._c + ' rotateY(' + (left ? -104 : 104) + 'deg)';
+      pv.style.transitionDelay = (delay || 0).toFixed(2) + 's';
+      var d = el('door ' + (solid ? 'solid ' : '') + (left ? 'hl' : 'hr'), pv), wp = P(w), hp = P(h);
+      d.style.width = px(wp); d.style.height = px(hp); d.style.left = left ? '0px' : px(-wp); d.style.top = px(-hp / 2);
+      return pv;
+    }
+
+    // ---------- models ----------
+    function buildBanho(W) {
+      var D = 0.46;
+      Pl(rig, 'wall marble', W + 1.1, 1.9, 0, 0.95, -D / 2 - 0.012);
+      Pf(rig, 'shadow', W + 1.3, 1.5, 0, 0.002, 0.1);
+      Pl(rig, 'glow wallglow', W + 0.5, 0.4, 0, 0.2, -D / 2 - 0.006);
+      var mw = Math.min(W * 0.85, 1.1);
+      Pl(rig, 'glow mirglow', mw + 0.12, 0.97, 0, 1.43, -D / 2 - 0.004);
+      Pl(rig, 'mirror', mw, 0.85, 0, 1.43, -D / 2);
+      B(rig, W, 0.5, D, 0, 0.65, 0, 'frltbk', '');
+      B(rig, W + 0.04, 0.03, D + 0.04, 0, 0.915, 0.02, 'ftkrlb', '');
+      var g = 0.015, h = (0.5 - 3 * g) / 2;
+      drawer(rig, W - 0.03, h, 0, 0.4 + g + h / 2, D / 2 + 0.012, 0.36, 0.3, 0);
+      drawer(rig, W - 0.03, h, 0, 0.4 + 2 * g + h * 1.5, D / 2 + 0.012, 0.36, 0.3, 0.08);
+      cyl(rig, 0.21, 0.13, 0, 0.995, 0.02, 'k-white', 18);
+      Pf(rig, 'basin', 0.34, 0.34, 0, 1.062, 0.02);
+      cyl(rig, 0.011, 0.25, 0, 1.055, -0.17, 'k-gold', 10);
+      B(rig, 0.018, 0.018, 0.15, 0, 1.17, -0.1, 'fkrltb', 'k-gold');
+      Pl(rig, 'led', W - 0.08, 0.012, 0, 0.395, D / 2 + 0.01);
+    }
+    function buildCoz(W) {
+      var n = Math.round(W / 0.6), mw = W / n, x0 = -W / 2, m = Math.floor(n / 2), s = m >= 2 ? m - 2 : m + 2;
+      Pl(rig, 'wall kwall', W + 0.9, 2.4, 0, 1.2, -0.3);
+      Pl(rig, 'tile', W + 0.2, 0.62, 0, 1.18, -0.292);
+      Pf(rig, 'shadow', W + 1, 1.4, 0, 0.002, 0.15);
+      B(rig, W, 0.1, 0.5, 0, 0.05, -0.02, 'f', 'dark');
+      var i, j, cx;
+      for (i = 0; i <= n; i++) B(rig, 0.02, 0.74, 0.56, x0 + i * mw, 0.47, 0, 'flr', '');
+      B(rig, W, 0.02, 0.56, 0, 0.11, 0, 'ftb', '');
+      B(rig, W, 0.02, 0.54, 0, 0.55, 0, 'ftb', '');
+      Pl(rig, 'back', W, 0.72, 0, 0.47, -0.275);
+      B(rig, W + 0.02, 0.04, 0.62, 0, 0.86, 0.02, 'ftkrlb', 'k-stone');
+      for (j = 0; j < n; j++) {
+        cx = x0 + (j + 0.5) * mw;
+        if (j % 3 === 0) {
+          var g = 0.01, h = (0.74 - 4 * g) / 3;
+          for (var k = 0; k < 3; k++) drawer(rig, mw - 0.012, h, cx, 0.1 + g + h / 2 + k * (h + g), 0.29, 0.46, 0.3, k * 0.07);
+        } else {
+          var left = j % 2 === 1;
+          door(rig, mw - 0.008, 0.73, left ? cx - mw / 2 + 0.004 : cx + mw / 2 - 0.004, 0.47, 0.285, left, true, j * 0.04);
+        }
+      }
+      var uz = -0.123;
+      for (i = 0; i <= n; i++) B(rig, 0.02, 0.7, 0.34, x0 + i * mw, 1.83, uz, 'flr', '');
+      B(rig, W, 0.02, 0.34, 0, 2.18, uz, 'ft', '');
+      B(rig, W, 0.02, 0.34, 0, 1.48, uz, 'fb', '');
+      B(rig, W, 0.02, 0.32, 0, 1.83, uz, 'ftb', '');
+      Pl(rig, 'back', W, 0.7, 0, 1.83, -0.285);
+      for (j = 0; j < n; j++) {
+        if (j === m) continue;
+        cx = x0 + (j + 0.5) * mw;
+        var lf = j % 2 === 1;
+        door(rig, mw - 0.008, 0.69, lf ? cx - mw / 2 + 0.004 : cx + mw / 2 - 0.004, 1.83, uz + 0.174, lf, true, j * 0.04);
+      }
+      var xm = x0 + (m + 0.5) * mw, xs = x0 + (s + 0.5) * mw;
+      B(rig, 0.62, 0.09, 0.44, xm, 1.52, -0.075, 'frltbk', 'k-stone');
+      B(rig, 0.22, 0.7, 0.2, xm, 1.9, -0.185, 'frltk', 'dark');
+      Pf(rig, 'hob', 0.58, 0.5, xm, 0.884, 0.02);
+      Pf(rig, 'sink', 0.5, 0.4, xs, 0.884, 0.02);
+      cyl(rig, 0.012, 0.28, xs, 1.02, -0.2, 'k-gold', 10);
+      B(rig, 0.02, 0.02, 0.16, xs, 1.15, -0.12, 'fkrltb', 'k-gold');
+      Pl(rig, 'led', W - 0.06, 0.012, 0, 1.476, uz + 0.172);
+      Pl(rig, 'glow kglow', W, 0.5, 0, 1.22, -0.29);
+    }
+    function buildQuarto(W) {
+      var L = 2.0, tx = W / 2 + 0.08 + 0.25;
+      Pl(rig, 'wall slats', W + 1.9, 1.7, 0, 0.85, -L / 2 - 0.14);
+      Pf(rig, 'shadow', W + 2, 3.1, 0, 0.002, 0);
+      Pf(rig, 'glow floorg', W + 1, L + 0.9, 0, 0.004, 0);
+      Pl(rig, 'glow hbglow', W + 0.5, 0.8, 0, 0.78, -L / 2 - 0.115);
+      B(rig, W + 0.3, 0.95, 0.06, 0, 0.72, -L / 2 - 0.04, 'frltbk', '');
+      B(rig, W + 0.08, 0.2, L, 0, 0.2, 0, 'frltbk', '');
+      B(rig, W - 0.12, 0.1, L - 0.15, 0, 0.05, 0, 'frlk', 'dark');
+      B(rig, W, 0.2, L - 0.1, 0, 0.4, 0, 'frltk', 'k-white');
+      B(rig, W + 0.03, 0.07, 1.3, 0, 0.52, 0.35, 'frltk', 'k-fabric');
+      B(rig, W / 2 - 0.1, 0.12, 0.4, -W / 4, 0.58, -0.72, 'frltk', 'k-white');
+      B(rig, W / 2 - 0.1, 0.12, 0.4, W / 4, 0.58, -0.72, 'frltk', 'k-white');
+      [-1, 1].forEach(function (sd, idx) {
+        var x = sd * tx;
+        B(rig, 0.45, 0.3, 0.4, x, 0.5, -0.8, 'frltbk', '');
+        drawer(rig, 0.41, 0.24, x, 0.5, -0.8 + 0.2 + 0.01, 0.3, 0.25, idx * 0.08);
+        cyl(rig, 0.035, 0.2, x, 0.75, -0.9, 'k-gold', 10);
+        cyl(rig, 0.09, 0.14, x, 0.92, -0.9, 'lampshade', 14);
+      });
+    }
+    var MODELS = {
+      banho: { name: 'casa de banho', msg: 'um móvel de casa de banho', dim: 'largura', wl: 'Largura do móvel', min: 0.8, max: 1.6, step: 0.2, def: 1.0, open: 'Abrir gavetas', build: buildBanho,
+        ext: function (w) { return { w: Math.max(w + 0.9, 2.2), h: 1.95 }; }, note: 'Móvel suspenso com lavatório de bancada, espelho e luz LED. Ilustração 3D de um modelo base: o projeto final é desenhado à sua medida.' },
+      cozinha: { name: 'cozinha', msg: 'uma cozinha', dim: 'comprimento', wl: 'Comprimento', min: 2.4, max: 4.8, step: 0.6, def: 3.0, open: 'Abrir portas', build: buildCoz,
+        ext: function (w) { return { w: w + 0.6, h: 2.4 }; }, note: 'Cozinha linear com armários altos e baixos, placa, exaustor e lava-loiça. Ilustração 3D de um modelo base: o projeto final é desenhado à sua medida.' },
+      quarto: { name: 'quarto', msg: 'mobiliário de quarto (cama com cabeceira e mesas de cabeceira)', dim: 'largura de cama', wl: 'Largura da cama', min: 1.4, max: 2.0, step: 0.2, def: 1.6, open: 'Abrir gavetas', build: buildQuarto,
+        ext: function (w) { return { w: Math.max(w + 1.7, 3.0), h: 1.4 }; }, note: 'Cama com cabeceira em painel e mesas de cabeceira suspensas com gaveta. Ilustração 3D de um modelo base: o projeto final é desenhado à sua medida.' }
+    };
+
+    function applyMov() { movers.forEach(function (m) { m.style.transform = st.open ? m._o : m._c; }); }
+    function apply() {
+      var f = FIN[st.fin], M = MODELS[st.m];
+      stage.style.setProperty('--c', f.c);
+      stage.style.setProperty('--grain', f.grain ? GRAIN : 'none');
+      stage.classList.toggle('led-on', st.led);
+      bOpen.setAttribute('aria-pressed', st.open ? 'true' : 'false');
+      bLed.setAttribute('aria-pressed', st.led ? 'true' : 'false');
+      var wTxt = st.w.toFixed(1).replace('.', ',');
+      wOut.textContent = wTxt + ' m';
+      var msg = 'Olá! Gostaria de um orçamento para ' + M.msg + ' com ' + wTxt + ' m de ' + M.dim + ', acabamento ' + f.name + (st.led ? ', com iluminação LED' : '') + '.';
+      cta.href = 'https://wa.me/351937571090?text=' + encodeURIComponent(msg);
+    }
+    function build() {
+      var sw = stage.clientWidth || 340, sh = stage.clientHeight || 440, M = MODELS[st.m], e = M.ext(st.w);
+      ctx.u = Math.min(sw * 0.88 / e.w, sh * 0.8 / e.h); ctx.yc = e.h / 2;
+      rig.innerHTML = ''; movers = [];
+      M.build(st.w);
+      applyMov(); apply();
+    }
+    function setModel(k) {
+      widths[st.m] = st.w; st.m = k;
+      var M = MODELS[k];
+      st.w = widths[k] || M.def; st.open = false;
+      wIn.min = M.min; wIn.max = M.max; wIn.step = M.step; wIn.value = st.w;
+      wLbl.textContent = M.wl; bOpen.textContent = M.open; note.textContent = M.note;
+      [].forEach.call(tabs.querySelectorAll('.stab'), function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-m') === k ? 'true' : 'false'); });
+      setRy(base); build();
+    }
+
+    FIN.forEach(function (f, i) {
+      var lab = document.createElement('label'); lab.className = 'chip';
+      lab.innerHTML = '<input type="radio" name="simfin" value="' + i + '"' + (i === 0 ? ' checked' : '') + '><span><i style="background:' + f.c + '"></i>' + f.name + '</span>';
+      lab.querySelector('input').addEventListener('change', function () { st.fin = i; apply(); });
+      finWrap.appendChild(lab);
+    });
+    [].forEach.call(tabs.querySelectorAll('.stab'), function (b) { b.addEventListener('click', function () { setModel(b.getAttribute('data-m')); }); });
+    wIn.addEventListener('input', function () { st.w = parseFloat(wIn.value); build(); });
+    bOpen.addEventListener('click', function () { st.open = !st.open; applyMov(); apply(); });
+    bLed.addEventListener('click', function () { st.led = !st.led; apply(); });
+
+    function setRy(v) { ry = Math.max(-75, Math.min(75, v)); rig.style.setProperty('--ry', ry + 'deg'); }
+    stage.addEventListener('pointerdown', function (e) { drag = { x: e.clientX, r: ry }; auto = false; stage.classList.add('grabbing'); try { stage.setPointerCapture(e.pointerId); } catch (x) {} });
+    stage.addEventListener('pointermove', function (e) { if (drag) setRy(drag.r + (e.clientX - drag.x) * 0.35); });
+    function end() { drag = null; stage.classList.remove('grabbing'); }
+    stage.addEventListener('pointerup', end); stage.addEventListener('pointercancel', end);
+    stage.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') setRy(ry - 8); if (e.key === 'ArrowRight') setRy(ry + 8); });
+    stage.tabIndex = 0;
+
+    function tick(ts) {
+      if (!visible) { raf = 0; return; }
+      if (auto && !drag) setRy(base + Math.sin(ts * 0.0006) * 20);
+      raf = requestAnimationFrame(tick);
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible && !raf) raf = requestAnimationFrame(tick); }).observe(stage);
+    }
+    var rt = 0;
+    if ('ResizeObserver' in window) new ResizeObserver(function () { cancelAnimationFrame(rt); rt = requestAnimationFrame(build); }).observe(stage);
+    window.addEventListener('load', build);
+    setModel('banho');
+  })();
+
+  (function () {
+    var b = document.getElementById('burger'), nav = document.getElementById('mainNav');
+    if (!b || !nav) return;
+    function set(o) { nav.classList.toggle('open', o); b.setAttribute('aria-expanded', o ? 'true' : 'false'); b.setAttribute('aria-label', o ? 'Fechar menu' : 'Abrir menu'); }
+    b.addEventListener('click', function () { set(!nav.classList.contains('open')); });
+    nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') set(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    window.matchMedia('(min-width: 901px)').addEventListener && window.matchMedia('(min-width: 901px)').addEventListener('change', function () { set(false); });
+  })();
+
+  (function () {
+    var fw = document.getElementById('gFilters'); if (!fw) return;
+    var items = [].slice.call(document.querySelectorAll('#gGallery .g-item'));
+    fw.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('.stab') : null; if (!b) return;
+      var c = b.getAttribute('data-c');
+      [].forEach.call(fw.querySelectorAll('.stab'), function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      items.forEach(function (f) { f.hidden = !(c === 'todos' || f.getAttribute('data-c') === c); });
+    });
+  })();
+</script>
+</body>
+</html>
